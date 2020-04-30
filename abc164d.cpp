@@ -29,18 +29,14 @@ int main()
 {
 	fio
 	int TC;
-	cin>>TC;
-	//TC=1;
+	//cin>>TC;
+	TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
-		
+		//int n;
+		//cin>>n;
+		for(int i=0;i<20;i++)
+			cout<<i*2019<<endl;
 	}
 	return 0;
 }

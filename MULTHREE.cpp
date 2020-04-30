@@ -4,8 +4,6 @@
 #define fr(i,j,k) for(int i<=k-1;i>=j;i--)
 #define ll long long
 #define ld long double
-#define pb push_back
-#define all(x) x.begin(),x.end()
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
@@ -23,6 +21,19 @@ struct myhash {
 };
 
 
+ll power(ll a,ll n,ll p)
+{
+	ll ans=1;
+	while(n>0)
+	{
+		if(a&1) ans=(ans*a)%p;
+		n=n>>1;
+		a = (a*a)%p;
+	}
+	return ans;
+}
+
+
 using namespace std;
 
 int main()
@@ -33,13 +44,13 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		ll k,d0,d1,p;
+		cin>>k>>d0>>d1;
+		p = (d1+d0);
+		if(k>=2)
+			((power(2,k-2,10)*p + p)%10)%3==0?cout<<"YES\n":cout<<"NO\n";
+		else
+			cout<<(p%3==0?"YES":"NO")<<endl;
 		
 	}
 	return 0;

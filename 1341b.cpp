@@ -4,8 +4,6 @@
 #define fr(i,j,k) for(int i<=k-1;i>=j;i--)
 #define ll long long
 #define ld long double
-#define pb push_back
-#define all(x) x.begin(),x.end()
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
@@ -33,13 +31,27 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
+		int n,k;
+		cin>>n>>k;
 		std::vector<ll> v(n);
 		for (int i = 0; i < n; ++i)
-		{
 			cin>>v[i];
+		int l=0,peaks=0;
+
+		for(int i=1;i<k-1;i++)
+			if(v[i]>v[i+1] && v[i]>v[i-1])
+				peaks++;
+		int mx_peak=peaks;
+		for(int i=k;i<n;i++)
+		{
+			if(v[i-1]>v[i] && v[i-1]>v[i-2])
+				peaks++;
+			if(v[i-k+1]>v[i-k] && v[i-k+1]>v[i-k+2])
+				peaks--;
+			if(peaks>mx_peak)
+				mx_peak=peaks,l=i-k+1;
 		}
+		cout<<mx_peak+1<<" "<<l+1<<endl;	
 		
 	}
 	return 0;

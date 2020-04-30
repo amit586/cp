@@ -4,8 +4,6 @@
 #define fr(i,j,k) for(int i<=k-1;i>=j;i--)
 #define ll long long
 #define ld long double
-#define pb push_back
-#define all(x) x.begin(),x.end()
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
@@ -33,12 +31,45 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		string s;
+		cin>>s;
+		int n = s.size();
+		if(n==1)
 		{
-			cin>>v[i];
+			cout<<"YES\n";
+			continue;
+		}
+		unordered_map<char,int> freql,freqr;
+		if(n%2==0)
+		{
+			for(int i=0;i<n/2;i++)
+				freql[s[i]]++;
+			for(int i=n/2;i<n;i++)
+				freqr[s[i]]++;
+			bool lapin=true;
+			for(auto it:freql)
+			{
+				if(freqr.find(it.first)==freqr.end() || freqr[it.first]!=it.second)
+					{lapin=false;break;}
+			}
+			lapin?cout<<"YES\n":cout<<"NO\n";
+
+		}
+		else
+		{
+			for(int i=0;i<n/2;i++)
+				freql[s[i]]++;
+			for(int i=n/2+1;i<n;i++)
+				freqr[s[i]]++;
+			bool lapin=true;
+			for(auto it:freql)
+			{
+				if(freqr.find(it.first)==freqr.end() || freqr[it.first]!=it.second)
+					{lapin=false;break;}
+			}
+			lapin?cout<<"YES\n":cout<<"NO\n";
+
+
 		}
 		
 	}

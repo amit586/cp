@@ -4,8 +4,6 @@
 #define fr(i,j,k) for(int i<=k-1;i>=j;i--)
 #define ll long long
 #define ld long double
-#define pb push_back
-#define all(x) x.begin(),x.end()
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
@@ -27,20 +25,12 @@ using namespace std;
 
 int main()
 {
-	fio
-	int TC;
-	cin>>TC;
-	//TC=1;
-	while(TC--)
+	int temp;
+	cin>>temp;
+	while(temp!=42)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
-		
+		cout<<temp<<endl;
+		cin>>temp;
 	}
 	return 0;
 }
