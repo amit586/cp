@@ -32,13 +32,9 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		ll a,b;
+		cin>>a>>b;
+		cout<<a+b<<endl;
 		
 	}
 	return 0;

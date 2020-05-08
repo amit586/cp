@@ -9,6 +9,7 @@
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
         x += 0x9e3779b97f4a7c15;
         x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
@@ -32,14 +33,15 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
-		
+		int n,m;
+		cin>>n>>m;
+		if(m>n)
+			swap(n,m);
+
+		if(m==1 || (m==2 && n==2))
+			cout<<"YES\n";
+		else
+			cout<<"NO\n";		
 	}
 	return 0;
 }

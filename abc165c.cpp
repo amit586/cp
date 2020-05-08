@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 #define fio ios_base::sync_with_stdio(false);cin.tie(NULL);    
+#define f(i,j,k)  for(int i=j;i<k;i++)
+#define fr(i,j,k) for(int i<=k-1;i>=j;i--)
 #define ll long long
 #define ld long double
 #define pb push_back
 #define all(x) x.begin(),x.end()
-#define f first
-#define s second
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
         x += 0x9e3779b97f4a7c15;
         x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
@@ -28,17 +29,18 @@ int main()
 {
 	fio
 	int TC;
-	cin>>TC;
-	//TC=1;
+	//cin>>TC;
+	TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		int n,m,q;
+		cin>>n>>m>>q;
+		int qry[q][4];
+		for(int i=0;i<q;i++)
+			cin>>qry[i][0]>>qry[i][1]>>qry[i][3]>>qry[i][3]
+		arr[n];
+		for(int i=0;i<n;i++)
+			cin>>arr[i];
 		
 	}
 	return 0;

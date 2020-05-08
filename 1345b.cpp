@@ -9,6 +9,7 @@
 
 struct myhash {
     static uint64_t splitmix64(uint64_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
         x += 0x9e3779b97f4a7c15;
         x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
@@ -24,6 +25,18 @@ struct myhash {
 
 using namespace std;
 
+void makePyramind(long long &n)
+{
+	ll h=1;
+	ll x = 2;
+	while(n-(h*(3*h+1))/2>=0)
+	{
+		x = (h*(3*h+1))/2;
+		h++;
+	}
+	n=n-x;
+}
+
 int main()
 {
 	fio
@@ -32,14 +45,15 @@ int main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
+		ll n;
 		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		int count=0;
+		while(n>1)
 		{
-			cin>>v[i];
+			makePyramind(n);
+			count++;
 		}
-		
+		cout<<count<<endl;		
 	}
 	return 0;
 }
