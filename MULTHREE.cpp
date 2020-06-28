@@ -46,11 +46,18 @@ int main()
 	{
 		ll k,d0,d1,p;
 		cin>>k>>d0>>d1;
-		p = (d1+d0);
-		if(k>=2)
-			((power(2,k-2,10)*p + p)%10)%3==0?cout<<"YES\n":cout<<"NO\n";
+		ll n1,n2,n3,n4,x=(d0+d1);
+		n1 = (k-2+3)/4;
+		n2 = (k-2+2)/4;
+		n3 = (k-2+1)/4;
+		n4 = (k-2)/4;
+
+		if((d0+d1+x+n1*((2*x)%10) + n2*((4*x)%10)+n3*((8*x)%10) + n4*((6*x)%10))%3==0)
+			cout<<"YES\n";
 		else
-			cout<<(p%3==0?"YES":"NO")<<endl;
+			cout<<"NO\n";
+
+
 		
 	}
 	return 0;

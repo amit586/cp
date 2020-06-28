@@ -6,37 +6,26 @@
 #define ld long double
 #define pb push_back
 #define all(x) x.begin(),x.end()
-
-struct myhash {
-    static uint64_t splitmix64(uint64_t x) {
-        // http://xorshift.di.unimi.it/splitmix64.c
-        x += 0x9e3779b97f4a7c15;
-        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
-        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
-        return x ^ (x >> 31);
-    }
-
-    size_t operator()(uint64_t x) const {
-        static const uint64_t FIXED_RANDOM = std::chrono::steady_clock::now().time_since_epoch().count();
-        return splitmix64(x + FIXED_RANDOM);
-    }
-};
-
-
+#define MOD 2019
 using namespace std;
 
 int main()
 {
 	fio
-	int TC;
-	//cin>>TC;
-	TC=1;
-	while(TC--)
+	string s;
+	cin>>s;
+	int n = s.size();
+	int hash[MOD]={0};
+	ll val=0,pot=1;
+	hash[val]=1;
+	int ans=0;
+	for(int i=n-1;i>=0;i--)
 	{
-		//int n;
-		//cin>>n;
-		for(int i=0;i<20;i++)
-			cout<<i*2019<<endl;
+		val = (val + (s[i]-'0')*pot)%MOD;
+		pot = (pot*10)%MOD;
+		ans+=hash[val];
+		hash[val]++;
 	}
+	cout<<ans<<endl;
 	return 0;
 }
