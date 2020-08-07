@@ -26,24 +26,50 @@
 #define int     ll
 
 using namespace std;
+vector<ll> a(105);
+vector<int> adj[105];
+vector<bool> vis(105);
+int n;
 
+const ll P1 = 1931237034633205845;
+const ll P2 = 1193829614179601806;
+
+void dfs(int root,bool first)
+{
+	vis[root]=true;
+	if(first)
+		a[root] = P1;
+	else
+		a[root] = P2;
+	//cout<<"a["<<root<<"]"<<" "<<a[root]<<endl;
+	for(auto it:adj[root])
+		if(!vis[it])
+			dfs(it,!first);
+}
 
 main()
 {
 	fio
 	int TC;
 	cin>>TC;
-	//TC=1;
 	while(TC--)
 	{
-		int n;
+		int u,v;
 		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+
+		for(int i=0;i<n;i++)
+			adj[i].clear();
 		
+		for(int i=0;i<n-1;i++)
+			cin>>u>>v,adj[u-1].pb(v-1),adj[v-1].pb(u-1);
+
+		fill(all(vis),false);
+		dfs(0,false);
+		
+		for(int i=0;i<n;i++)
+			cout<<a[i]<<" ";
+		cout<<endl;
+
 	}
 	return 0;
 }

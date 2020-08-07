@@ -43,7 +43,16 @@ main()
 		{
 			cin>>v[i];
 		}
-		
+
+		bool a = false;
+		for(int i=0;i<n;i++)
+		{
+			a = !a;
+			if(v[i]>1)
+				break;
+		}
+
+		a?cout<<"First\n":cout<<"Second\n";
 	}
 	return 0;
 }

@@ -27,6 +27,25 @@
 
 using namespace std;
 
+int solve(ll n)
+{
+	if(n==1)
+		return 0;
+	if(n%3!=0)
+		return -1;
+	int po3=0,po2=0;
+	ll x = n;
+	while(x%3==0)
+		po3++,x/=3;
+	while(x%2==0)
+		po2++,x/=2;
+	if(x!=1 or po2>po3)
+		return -1;
+	return max((ll)0,po3-po2)+po3;
+
+
+
+}
 
 main()
 {
@@ -38,11 +57,7 @@ main()
 	{
 		int n;
 		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		cout<<solve(n)<<endl;
 		
 	}
 	return 0;

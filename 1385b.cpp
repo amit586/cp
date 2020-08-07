@@ -27,6 +27,7 @@
 
 using namespace std;
 
+int freq[55];
 
 main()
 {
@@ -39,10 +40,20 @@ main()
 		int n;
 		cin>>n;
 		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		memset(freq,0,sizeof(freq));
+		int j=0,temp;
+		for (int i = 0; i < 2*n; ++i)
 		{
-			cin>>v[i];
+			cin>>temp;
+			if(freq[temp]==0)
+			{
+				v[j++]=temp;
+				freq[temp]++;
+			}
 		}
+		for(int i=0;i<n;i++)
+			cout<<v[i]<<" ";
+		cout<<endl;
 		
 	}
 	return 0;

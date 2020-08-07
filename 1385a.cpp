@@ -36,13 +36,16 @@ main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		int arr[3];
+		cin>>arr[0]>>arr[1]>>arr[2];
+		sort(arr,arr+3);
+		if(arr[2]==arr[1])
 		{
-			cin>>v[i];
+			cout<<"YES\n";
+			cout<<arr[2]<<" "<<arr[0]<<" "<<arr[0]<<endl;
 		}
+		else
+			cout<<"NO\n";
 		
 	}
 	return 0;

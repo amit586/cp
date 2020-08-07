@@ -38,11 +38,7 @@ main()
 	{
 		int n;
 		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		cout<<(n+1)/2<<endl;
 		
 	}
 	return 0;

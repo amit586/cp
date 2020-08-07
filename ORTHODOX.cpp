@@ -27,6 +27,44 @@
 
 using namespace std;
 
+bool fun1(vector<ll> &v,int n)
+{
+	set<ll> s;
+	ll r=0;
+	//cout<<"print:  ";
+	for(int i=0;i<n;i++)
+	{
+		r|=v[i];
+	//	cout<<r<<" ";
+		if(s.find(r)==s.end())
+			s.insert(r);
+		else{
+			return true;
+		}
+	}
+	//cout<<endl;
+	return false;
+}
+
+
+bool fun2(vector<ll> &v,int n)
+{
+	set<ll> s;
+	ll r=0;
+	//cout<<"print:  ";
+	for(int i=n-1;i>=0;i--)
+	{
+		r|=v[i];
+	//	cout<<r<<" ";
+		if(s.find(r)==s.end())
+			s.insert(r);
+		else{
+			return true;
+		}
+	}
+	//cout<<endl;
+	return false;
+}
 
 main()
 {
@@ -43,6 +81,7 @@ main()
 		{
 			cin>>v[i];
 		}
+		cout<<((fun1(v,n)||fun2(v,n))?"NO\n":"YES\n");
 		
 	}
 	return 0;

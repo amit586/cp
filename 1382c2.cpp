@@ -27,6 +27,17 @@
 
 using namespace std;
 
+void change(string &a,int i)
+{
+	for(int j=0;j<=i;j++)
+		if(a[j]=='0')
+			a[j]='1';
+		else
+			a[j]='0';
+	for(int j=0;j<=i/2;j++)
+		swap(a[j],a[i-j]);
+}
+
 
 main()
 {
@@ -37,12 +48,37 @@ main()
 	while(TC--)
 	{
 		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		string a,b;
+		cin>>n>>a>>b;
+		std::vector<ll> p;
+		int start=0,j=n-1;
+		bool reverse = true,nflip = false;
+		for(int i=n-1;i>0;i--)
 		{
-			cin>>v[i];
+			if(nflip and a[j]!=b[j])
+			{
+				if(a[start]!=b[i])
+				{
+					p.pb(1),pb(i+1);
+					reverse = !reverse; 
+				}
+			}
+
 		}
+		if(a[0]!=b[0])
+		{
+			p.pb(1);
+			if(a[0]=='0')
+				a[0]='1';
+			else
+				a[0]='0';
+		}
+		//cout<<"ans"<<endl;
+		cout<<p.size()<<" ";
+		for(int i=0;i<p.size();i++)
+			cout<<p[i]<<" ";
+		cout<<endl;
+		//cout<<endl<<a<<endl<<b<<endl<<endl;
 		
 	}
 	return 0;

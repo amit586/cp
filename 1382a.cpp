@@ -36,13 +36,21 @@ main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		int m,n,ans=-1,temp;
+		cin>>n>>m;
+		set<ll> s;
+		
+		for(int i=0;i<n;i++)
+			cin>>temp,s.insert(temp);
+		for(int i=0;i<m;i++)
 		{
-			cin>>v[i];
+			cin>>temp;
+			if(s.find(temp)!=s.end())
+				ans = temp;
 		}
+
+
+		ans==-1?cout<<"NO\n":cout<<"YES\n"<<1<<" "<<ans<<endl;
 		
 	}
 	return 0;

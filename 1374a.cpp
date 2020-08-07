@@ -36,14 +36,13 @@ main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
-		
+		int x,y,n;
+		cin>>x>>y>>n;
+		int a = (n-y)/x;
+		if(a*x+y>n)
+				a--;
+		cout<<a*x+y<<endl;
+				
 	}
 	return 0;
 }

@@ -36,13 +36,23 @@ main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
+		string s;
+		int n ;
 		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
+		cin>>s;
+		int freq[30]={0};
+		
+		for(int i=0;i<n;i++)
+			freq[s[i]-'a']++;
+
+		bool flag=true;
+		for(int i=0;i<30;i++)
+			if(freq[i]%2!=0)
+			{
+				flag=false;
+				break;
+			}
+		cout<<(flag?"YES\n":"NO\n");
 		
 	}
 	return 0;

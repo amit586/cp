@@ -31,19 +31,7 @@ using namespace std;
 main()
 {
 	fio
-	int TC;
-	cin>>TC;
-	//TC=1;
-	while(TC--)
-	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
-		{
-			cin>>v[i];
-		}
-		
-	}
+	int m,n,k;
+	cin>>n>>m>>k;
 	return 0;
 }

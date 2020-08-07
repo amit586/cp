@@ -21,12 +21,11 @@
 #define ld      long double
 #define pb      push_back
 #define all(x)  x.begin(),x.end()
-#define f       first
-#define s       second
+#define f first
+#define s second
 #define int     ll
 
 using namespace std;
-
 
 main()
 {
@@ -36,14 +35,27 @@ main()
 	//TC=1;
 	while(TC--)
 	{
-		int n;
-		cin>>n;
-		std::vector<ll> v(n);
-		for (int i = 0; i < n; ++i)
+		int n,k,temp;
+		cin>>n>>k;
+		map<int,int> m;
+		for(int i=0;i<n;i++)
 		{
-			cin>>v[i];
+			cin>>temp;
+			if(temp%k!=0)
+				m[k-temp%k]++;
 		}
-		
+		if(m.size()==0)
+		{
+			cout<<0<<endl;
+		}
+		else
+		{
+			int ans=0;
+			for(auto it:m)
+				ans = max(ans,(it.s-1)*k+it.f+1);
+			cout<<ans<<endl;
+
+		}
 	}
 	return 0;
 }
